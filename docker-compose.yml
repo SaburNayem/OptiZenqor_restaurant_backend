@@ -1,0 +1,31 @@
+version: '3.9'
+services:
+  api:
+    build: .
+    container_name: optizenqor-api
+    env_file:
+      - .env
+    ports:
+      - '4000:4000'
+    depends_on:
+      - db
+      - redis
+  db:
+    image: postgres:16-alpine
+    container_name: optizenqor-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: optizenqor
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+  redis:
+    image: redis:7-alpine
+    container_name: optizenqor-redis
+    ports:
+      - '6379:6379'
+
+volumes:
+  postgres_data:

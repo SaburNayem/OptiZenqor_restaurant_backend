@@ -1,0 +1,33 @@
+ @ApiTag   @ApiTagdans@EO @ApiTag   @Apdy@ApiTags('Ad.i@ApiTaAd a@ApiTagisem@ApiTagnt@ApiBearer w }    }@Ust:     }@Ustj@UseGct@ApiTags('Address  @ApiTags('pu@Ant@ApiBear/s@Usit@UseGuards(Jwot@Usit@UseGuards(Jwt {@ApiTaAd
+@ApiTag= await this.pris@Apiat@ApiTag= await this.pris@ApiTag.fIt@ApiTammon/guar@ApiTags('Ad);@ApiTaAdsy@ApiTagve!c@ApiTagrt@tr@ApiTags('Ad);@Apifmput@Apgs@ApiTags('Adul@ApiTaAdad@ApiTagse'@@ApiTagco@ApiBearer: @Usri@UseGuards(Jwto , @ApiBeag)@ApiTags('Addresses')
+@ApiBearerAuth()
+@UseGuards(Jwtort@ApiBearerAuth()
+@Us} @Us.ce:@ApiBearerAuth()
+@Ura@ApiBearerAuth()
+@UseGuards(J')@UseGuards(Jwto, @Us} @Us.ce:@ApiBearerAuth()
+@Usin@Us
+ @UseGuards(Jwto t@Us} tO @re@ApiTaAd
+@ApiTagsco@ApiBeaghI@ApiTag @@UseGuards(Jn?@UseGuards(JwtotV@Us} @Us.ce:@Apid:@Use @Us
+ @UseGuards(Jwto t@Us}  s @ma@ApiTaAd
+@ApiTags('Aus @UseGuod@ApiTags('Adva@Apidi@ItemId, body.quan@Ate@ApiBearerA
+ @ApiTa
+EOF
+cat > s@Ate@ApiBearerA
+ @ApiTag   @ApiTagdans@EO @ApiTag   @Apd @ @ApiTa
+EOF
+ca) EOF
+ca: carica: carica: carica: c quantity: number) { return this.service.updateItemQuantity(cartId, itemId, quantity); }
+  @Delete(':cartId/items/:itemId') removeItem(@Param('cartId') cartId: string, @Param('itemId') itemId: string) { return this.service.removeItem(cartId, itemId); }
+  @Delete(':cartId/clear') clear(@Param('cartId') cartId: string) { return this.service.clear(cartId); }
+  @Patch(':cartId/coupon') coupon(@Param('cartId') cartId: string, @Body('code') code: string) { return this.service.applyCoupon(cartId, code); }
+  @Patch(':cartId/instruction') instruction(@Param('cartId') cartId: string, @Body('specialInstruction') note: string) { return this.service.setInstruction(cartId, note); }
+}
+EOF
+cat > src/modules/cart/cart.module.ts << 'EOF'
+import { Module } from '@nestjs/common';
+import { CartController } from './cart.controller';
+import { CartService } from './cart.service';
+
+@Module({ controllers: [CartController], providers: [CartService], exports: [CartService] })
+export class CartModule {}
+EOF
